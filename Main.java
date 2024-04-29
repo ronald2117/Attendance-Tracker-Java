@@ -80,18 +80,25 @@ public class Main {
     public static void signUp() {
         clearConsole();
         System.out.println("Sign up");
+        System.out.print("Enter your first name: ");
+        String firstName = scanner.next();
+        System.out.print("Enter your middle name: ");
+        String middleName = scanner.next();
+        System.out.print("Enter your last name: ");
+        String lastName = scanner.next();
         System.out.print("Enter your username: ");
         String userName = scanner.next();
         System.out.print("Enter your password: ");
         String password = scanner.next();
 
-        users.add(new User(userName, password));
+        users.add(new User(firstName, middleName, lastName, userName, password));
 
-
+        Menu();
+        
     }
 
     public static void Menu() {
-        System.out.println("Menu");
+        System.out.println("Welcome ");
         System.out.println("1. Attendance");
         System.out.println("2. Subjects");
         System.out.println("3. Students");
