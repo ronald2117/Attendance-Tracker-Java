@@ -1,25 +1,125 @@
 import javax.security.auth.Subject;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class User {
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String userName;
+    private String password;
+
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public String getfirstName() {
+        return firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}
 
 public class Main {
-    Subject subject = new Subject();
+    static ArrayList<User> users = new ArrayList<User>();
+    static Subject subject = new Subject();
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 
     public static void mainMenu() {
+        clearConsole();
         System.out.println("Welcome to the Attendance Tracker!");
         System.out.println("1. Log in");
         System.out.println("2. Sign up");
         System.out.println("3. Exit");
+
+        System.out.print("Enter choice: ");
+        int choice = scanner.nextInt();
+
+        switch(choice) {
+            case 1:
+                logIn();
+                break;
+            case 2:
+                signUp();
+                break;
+            case 3:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid choice");
+                mainMenu();
+        }
+
     }
 
     public static void logIn() {
+        clearConsole();
         System.out.println("Log in");
-        System.out.println("Enter your username: ");
+        System.out.print("Enter your username: ");
+        String userName = scanner.next();
         System.out.println("Enter your password: ");
+        String password = scanner.next();
+
+        for (User user : users) {
+            if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
+                Menu();
+            }
+        }
+
+        reLogin();
+    }
+
+    public static void reLogin() {
+        System.out.println("Invalid username or password");
+        System.out.println("1. Try again");
+        System.out.println("2. Back to main menu");
+
+        int choice = scanner.nextInt();
+
+        switch(choice) {
+            case 1:
+                logIn();
+                break;
+            case 2:
+                mainMenu();
+                break;
+            default:
+                System.out.println("Invalid choice");
+                reLogin();
+        }
     }
 
     public static void signUp() {
+        clearConsole();
         System.out.println("Sign up");
-        System.out.println("Enter your username: ");
-        System.out.println("Enter your password: ");
+        System.out.print("Enter your username: ");
+        String userName = scanner.next();
+        System.out.print("Enter your password: ");
+        String password = scanner.next();
+
+        users.add(new User(userName, password));
+
+
     }
 
     public static void Menu() {
@@ -59,9 +159,12 @@ public class Main {
 
     public static void addAttendance() {
         System.out.println("Add attendance");
-        
         System.out.println("Enter the date: ");
 
+    }
+
+    public static void main(String[] args) {
+        mainMenu();
     }
 }
     
