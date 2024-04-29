@@ -1,5 +1,3 @@
-package AttendanceTracker;
-
 import javax.security.auth.Subject;
 
 public class Main {

@@ -1,5 +1,3 @@
-package AttendanceTracker;
-
 public class Student{
     private int classId;
     private String schoolId;

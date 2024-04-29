@@ -1,5 +1,3 @@
-package AttendanceTracker;
-
 public class ClassTime {
     private int startHour;
     private int startMinute;

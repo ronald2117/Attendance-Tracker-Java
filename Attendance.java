@@ -1,5 +1,3 @@
-package AttendanceTracker;
-
 public class Attendance {
     private Student student;
     private Boolean isPresent;
