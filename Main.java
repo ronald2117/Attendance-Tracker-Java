@@ -2,39 +2,6 @@ import javax.security.auth.Subject;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class User {
-    private String firstName;
-    private String middleName;
-    private String lastName;
-    private String userName;
-    private String password;
-
-    public User(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
-    public String getfirstName() {
-        return firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-}
-
 public class Main {
     static ArrayList<User> users = new ArrayList<User>();
     static User currentUser;
