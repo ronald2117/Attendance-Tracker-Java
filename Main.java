@@ -37,6 +37,7 @@ class User {
 
 public class Main {
     static ArrayList<User> users = new ArrayList<User>();
+    static User currentUser;
     static Subject subject = new Subject();
     static Scanner scanner = new Scanner(System.in);
 
